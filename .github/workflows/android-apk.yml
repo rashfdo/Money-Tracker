@@ -11,7 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout project
+        uses: actions/checkout@v4
 
       - name: Setup Java
         uses: actions/setup-java@v4
@@ -20,9 +21,9 @@ jobs:
           java-version: '17'
 
       - name: Setup Android SDK
-  uses: android-actions/setup-android@v4
-  with:
-    packages: ''
+        uses: android-actions/setup-android@v4
+        with:
+          packages: ''
 
       - name: Install SDK
         run: sdkmanager "platforms;android-35" "build-tools;35.0.0"
